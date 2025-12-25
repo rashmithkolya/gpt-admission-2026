@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Government Polytechnic Bantwal | Admission 2026</title>
+    <meta name="description" content="Official Admission Portal for Government Polytechnic Bantwal. Diploma courses in Civil, CS, E&C, and Mechanical Engineering.">
+    
+    <style>
+        /* =========================================
+           1. CSS VARIABLES & RESET
+           ========================================= */
+        :root {
+            --primary: #003366; /* Official Deep Blue */
+            --primary-dark: #002244;
+            --secondary: #D4AF37; /* Metallic Gold */
+            --accent: #dc2626; /* Alert Red */
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --bg-body: #f8fafc;
+            --white: #ffffff;
+            --border: #e2e8f0;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+            --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--text-main);
+            background-color: var(--bg-body);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; }
+
+        /* =========================================
+           2. UTILITIES
+           ========================================= */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section-padding { padding: 5rem 0; }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3.5rem;
+        }
+
+        .section-title {
+            font-size: 2.25rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            margin: 12px auto 0;
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+
+        /* Animation */
+        .reveal { opacity: 0; transform: translateY(20px); transition: 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 24px;
+            background: var(--primary);
+            color: var(--white);
+            font-weight: 600;
+            border-radius: 4px;
+            transition: var(--transition);
+            border: 1px solid transparent;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        /* =========================================
+           3. HEADER (With Banner Image)
+           ========================================= */
+        
+        header {
+            position: relative;
+            width: 100%;
+            z-index: 1000;
+            background: var(--white);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            padding: 0; /* Remove padding to let banner fit flush */
+        }
+
+        /* The Cool Gradient Line at the bottom */
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 50%, var(--primary) 100%);
+            z-index: 1001;
+        }
+
+        .navbar {
+            display: flex;
+            flex-direction: column; /* Stack Banner and Menu vertically */
+            align-items: center;
+            padding: 0;
+        }
+
+        /* BANNER IMAGE */
+        .header-banner {
+            width: 100%;
+            height: auto;
+            max-width: 100%;
+            display: block;
+            object-fit: contain;
+        }
+
+        /* Navigation Links - Centered Below Banner */
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin: 15px 0; /* Add spacing around the menu */
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-link {
+            font-weight: 600;
+            color: var(--text-main);
+            font-size: 1rem;
+            position: relative;
+            padding: 5px 0;
+            transition: 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-link:hover { 
+            color: var(--primary); 
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0%;
+            height: 2px;
+            background: var(--secondary);
+            transition: width 0.3s ease-in-out;
+            border-radius: 2px;
+        }
+
+        .nav-link:hover::before { width: 100%; }
+
+        /* =========================================
+           4. HERO SECTION
+           ========================================= */
+        #hero {
+            height: calc(100vh - 150px); /* Adjust based on banner height approx */
+            min-height: 500px;
+            background: linear-gradient(rgba(0, 34, 68, 0.9), rgba(0, 34, 68, 0.75)),
+                        url('image1.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .hero-content { max-width: 800px; }
+
+        .dept-tag {
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-desc {
+            font-size: 1.15rem;
+            opacity: 0.9;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .pulse-badge {
+            background: var(--accent);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.3);
+        }
+
+        /* =========================================
+           5. GALLERY CAROUSEL
+           ========================================= */
+        #gallery { background: var(--white); }
+
+        .carousel-outer {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .carousel-track-container {
+            width: 100%;
+            aspect-ratio: 16/9;
+            position: relative;
+        }
+
+        .carousel-track {
+            display: flex;
+            height: 100%;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            height: 100%;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .c-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+            z-index: 10;
+            color: var(--primary);
+        }
+        .c-btn:hover { background: var(--white); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+        .c-prev { left: 20px; }
+        .c-next { right: 20px; }
+
+        /* =========================================
+           6. CAMPUS LIFE (VIDEO)
+           ========================================= */
+        #video-section { background: var(--bg-body); }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            background: #000;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* =========================================
+           7. ADMISSION INFO
+           ========================================= */
+        #admission { background: var(--white); }
+
+        .admission-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .adm-card {
+            background: var(--bg-body);
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .adm-card h3 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .criteria-list li {
+            margin-bottom: 1rem;
+            padding-left: 20px;
+            position: relative;
+            border-bottom: 1px dashed var(--border);
+            padding-bottom: 1rem;
+        }
+        .criteria-list li:last-child { border-bottom: none; }
+        .criteria-list strong { color: var(--primary); display: block; margin-bottom: 4px; }
+        
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        .h-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        .h-icon {
+            color: var(--secondary);
+            font-size: 1.2rem;
+            margin-top: 2px;
+        }
+
+        /* =========================================
+           8. BRANCHES
+           ========================================= */
+        #branches { background: var(--bg-body); }
+
+        .branch-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+
+        .course-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0;
+            transition: var(--transition);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .course-header {
+            background: var(--primary);
+            color: var(--white);
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .course-icon { font-size: 2rem; }
+        .course-title { font-size: 1.1rem; font-weight: 600; line-height: 1.3; }
+
+        .course-body { padding: 1.5rem; flex-grow: 1; }
+
+        .spec-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--bg-body);
+            padding-bottom: 12px;
+        }
+        .spec-row:last-child { border: none; margin: 0; padding: 0; }
+        .spec-val { color: var(--text-main); font-weight: 600; }
+
+        /* =========================================
+           9. CONTACT
+           ========================================= */
+        #contact {
+            background: #0f172a;
+            color: #cbd5e1;
+            padding-bottom: 3rem;
+        }
+
+        #contact .section-title { color: var(--white); }
+        
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 4rem;
+        }
+
+        .contact-col h3 {
+            color: var(--secondary);
+            margin-bottom: 2rem;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .contact-list { display: flex; flex-direction: column; gap: 1.5rem; }
+
+        .c-card {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 1.25rem;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+        .c-card:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.1); }
+
+        .c-icon-box {
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--secondary);
+            flex-shrink: 0;
+        }
+
+        .c-info h4 { color: var(--white); font-size: 1rem; margin-bottom: 2px; }
+        .c-info a { color: #94a3b8; transition: 0.3s; }
+        .c-info a:hover { color: var(--white); }
+
+        /* Table-like list for HODs */
+        .directory-list { border-top: 1px solid rgba(255,255,255,0.1); }
+        .directory-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.95rem;
+        }
+        .d-name { color: var(--white); font-weight: 500; }
+        .d-action a {
+            color: var(--secondary);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        /* =========================================
+           10. FOOTER & FLOATING CTA
+           ========================================= */
+        footer {
+            background: #020617;
+            color: #64748b;
+            text-align: center;
+            padding: 2rem 0;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .float-apply {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 990;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: var(--transition);
+            pointer-events: none;
+        }
+        .float-apply.visible { opacity: 1; transform: translateY(0); pointer-events: all; }
+
+        /* =========================================
+           RESPONSIVE
+           ========================================= */
+        @media (max-width: 992px) {
+            .nav-menu {
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+            .nav-link { font-size: 0.9rem; }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.2rem; }
+            .admission-layout { grid-template-columns: 1fr; gap: 2rem; }
+            .contact-wrapper { grid-template-columns: 1fr; }
+            .section-padding { padding: 3.5rem 0; }
+            
+            #hero { height: auto; padding: 6rem 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- MAIN HEADER: Banner Image + Menu -->
+    <header id="main-header">
+        <div class="navbar">
+            
+            <!-- HEADER BANNER IMAGE (Replaces Logo & Title) -->
+            <!-- Save your image as 'header_banner.jpg' -->
+            <img src="header_banner.jpg" alt="Government Polytechnic Bantwal Header" class="header-banner">
+
+            <!-- Navigation Links (Centered Below) -->
+            <ul class="nav-menu">
+                <li><a href="#hero" class="nav-link">Home</a></li>
+                <li><a href="#branches" class="nav-link">Courses</a></li>
+                <li><a href="#admission" class="nav-link">Admissions</a></li>
+                <li><a href="#gallery" class="nav-link">Campus</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="hero">
+        <div class="container hero-content reveal active">
+            <div class="pulse-badge">Admission Open 2026</div>
+            <p class="dept-tag">Department of Collegiate & Technical Education</p>
+            <h1 class="hero-title">Empowering Future Engineers</h1>
+            <p class="hero-desc">
+                Government Polytechnic Bantwal offers diploma engineering courses with quality education, experienced faculty, and a well-equipped campus in a peaceful environment. 
+                Join us to build a strong foundation for your career.
+            </p>
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <a href="https://forms.gle/YA9Pxv8GuFm1CnVy6" target="_blank" class="btn">Apply Online</a>
+                <a href="#branches" class="btn btn-outline" style="border-color: rgba(255,255,255,0.5); color: white;">View Courses</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CAMPUS GALLERY -->
+    <section id="gallery" class="section-padding reveal">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Campus Tour</h2>
+                <p class="section-subtitle">Experience our 6.09-acre green campus environment</p>
+            </div>
+            
+            <div class="carousel-outer">
+                <div class="carousel-track-container">
+                    <div class="carousel-track" id="track">
+                        <div class="carousel-slide">
+                            <img src="image2.jpg" alt="Institute Building">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="image3.jpg" alt="Seminar Hall">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="image4.jpg" alt="Modern Labs">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="image5.jpg" alt="Lush Green Campus">
+                        </div>
+                    </div>
+                </div>
+                <button class="c-btn c-prev" id="prevBtn">&#10094;</button>
+                <button class="c-btn c-next" id="nextBtn">&#10095;</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CAMPUS LIFE VIDEO -->
+    <section id="video-section" class="section-padding">
+        <div class="container reveal">
+            <div class="section-header">
+                <h2 class="section-title">Campus Life</h2>
+                <p class="section-subtitle">A glimpse into student activities and infrastructure</p>
+            </div>
+            <div class="video-container">
+                <video autoplay muted loop playsinline poster="image6.jpg">
+                    <source src="hero.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <!-- ADMISSION DETAILS -->
+    <section id="admission" class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Admission Information</h2>
+            </div>
+            
+            <div class="admission-layout">
+                <!-- Eligibility -->
+                <div class="adm-card reveal">
+                    <h3>📜 Eligibility Criteria</h3>
+                    <ul class="criteria-list">
+                        <li>
+                            <strong>First Year Admission</strong>
+                            Pass in SSLC or Equivalent Examination.
+                        </li>
+                        <li>
+                            <strong>Lateral Entry (2nd Year)</strong>
+                            Direct admission for PUC Science or 2-Year ITI passed candidates.
+                        </li>
+                    </ul>
+                    <div style="margin-top: 2rem; background: #e0f2fe; padding: 15px; border-radius: 6px; color: #0369a1; font-size: 0.9rem;">
+                        <strong>Note:</strong> The institute has achieved 100% admission for the last 6 consecutive years.
+                    </div>
+                </div>
+
+                <!-- Highlights -->
+                <div class="adm-card reveal">
+                    <h3>🏆 Institute Highlights</h3>
+                    <div class="highlight-grid">
+                        <div class="h-item"><span class="h-icon">✓</span> <span>6.09 Acres of Green Campus</span></div>
+                        <div class="h-item"><span class="h-icon">✓</span> <span>Experienced & Qualified Faculty</span></div>
+                        <div class="h-item"><span class="h-icon">✓</span> <span>Modern Labs with Latest Machinery</span></div>
+                        <div class="h-item"><span class="h-icon">✓</span> <span>Library with 6000+ Books</span></div>
+                        <div class="h-item"><span class="h-icon">✓</span> <span>BCM Hostel for Boys</span></div>
+                        <div class="h-item"><span class="h-icon">✓</span> <span>Red Cross, NSS, & Sports Activities</span></div>
+                        <div class="h-item"><span class="h-icon">✓</span> <span>Less Admission Fees</span></div>
+                        <div class="h-item"><span class="h-icon">✓</span> <span>Scholarship Facility</span></div>
+                        <div class="h-item"><span class="h-icon">✓</span> <span>Placement Assistance</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COURSES / BRANCHES -->
+    <section id="branches" class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Courses</h2>
+                <p class="section-subtitle">3-Year Diploma Programs offered</p>
+            </div>
+
+            <div class="branch-grid">
+                
+                <!-- Civil -->
+                <div class="course-card reveal">
+                    <div class="course-header">
+                        <span class="course-icon">🏗️</span>
+                        <div class="course-title">Civil<br>Engineering</div>
+                    </div>
+                    <div class="course-body">
+                        <div class="spec-row">
+                            <span>Duration</span>
+                            <span class="spec-val">3 Years</span>
+                        </div>
+                        <div class="spec-row">
+                            <span>Seats</span>
+                            <span class="spec-val">60 + 3</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CS -->
+                <div class="course-card reveal">
+                    <div class="course-header">
+                        <span class="course-icon">💻</span>
+                        <div class="course-title">Computer<br>Science</div>
+                    </div>
+                    <div class="course-body">
+                        <div class="spec-row">
+                            <span>Duration</span>
+                            <span class="spec-val">3 Years</span>
+                        </div>
+                        <div class="spec-row">
+                            <span>Seats</span>
+                            <span class="spec-val">60 + 3</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- E&C -->
+                <div class="course-card reveal">
+                    <div class="course-header">
+                        <span class="course-icon">📡</span>
+                        <div class="course-title">Electronics &<br>Communication</div>
+                    </div>
+                    <div class="course-body">
+                        <div class="spec-row">
+                            <span>Duration</span>
+                            <span class="spec-val">3 Years</span>
+                        </div>
+                        <div class="spec-row">
+                            <span>Seats</span>
+                            <span class="spec-val">60 + 3</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mechanical -->
+                <div class="course-card reveal">
+                    <div class="course-header">
+                        <span class="course-icon">⚙️</span>
+                        <div class="course-title">Mechanical<br>Engineering</div>
+                    </div>
+                    <div class="course-body">
+                        <div class="spec-row">
+                            <span>Duration</span>
+                            <span class="spec-val">3 Years</span>
+                        </div>
+                        <div class="spec-row">
+                            <span>Seats</span>
+                            <span class="spec-val">60 + 3</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Contact Us</h2>
+                <p style="color: #94a3b8;">Get in touch with the administration or specific departments</p>
+            </div>
+
+            <div class="contact-wrapper reveal">
+                
+                <!-- Admin Column -->
+                <div class="contact-col">
+                    <h3>Administrative Office</h3>
+                    <div class="contact-list">
+                        
+                        <div class="c-card">
+                            <div class="c-icon-box">🎓</div>
+                            <div class="c-info">
+                                <h4>Principal</h4>
+                                <a href="tel:9448835521">94488 35521</a>
+                            </div>
+                        </div>
+
+                        <div class="c-card">
+                            <div class="c-icon-box">👨‍💼</div>
+                            <div class="c-info">
+                                <h4>Superintendent</h4>
+                                <a href="tel:9449898414">94498 98414</a>
+                            </div>
+                        </div>
+
+                        <div class="c-card">
+                            <div class="c-icon-box">☎️</div>
+                            <div class="c-info">
+                                <h4>Office Number</h4>
+                                <a href="tel:7338132009">73381 32009</a>
+                            </div>
+                        </div>
+
+                        <div class="c-card">
+                            <div class="c-icon-box">✉️</div>
+                            <div class="c-info">
+                                <h4>Email Address</h4>
+                                <a href="mailto:gptbantwal@gmail.com">gptbantwal@gmail.com</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dept Column -->
+                <div class="contact-col">
+                    <h3>Department Directory</h3>
+                    <p style="font-size: 0.9rem; margin-bottom: 1.5rem; opacity: 0.7;">
+                        For academic queries, please contact the respective HODs directly.
+                    </p>
+                    
+                    <div class="directory-list">
+                        <div class="directory-item">
+                            <span class="d-name">Civil Engineering</span>
+                            <span class="d-action"><a href="tel:7348853699">73488 53699</a></span>
+                        </div>
+                        <div class="directory-item">
+                            <span class="d-name">Computer Science</span>
+                            <span class="d-action"><a href="tel:9964023767">99640 23767</a></span>
+                        </div>
+                        <div class="directory-item">
+                            <span class="d-name">Electronics & Communication</span>
+                            <span class="d-action"><a href="tel:9538772561">95387 72561</a></span>
+                        </div>
+                        <div class="directory-item">
+                            <span class="d-name">Mechanical Engineering</span>
+                            <span class="d-action"><a href="tel:9448942583">94489 42583</a></span>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 2rem; padding: 1rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px;">
+                        <h4 style="color:var(--white); margin-bottom: 0.5rem;">📍 Location</h4>
+                        <p style="font-size: 0.9rem; line-height: 1.5;">
+                            Government Polytechnic Bantwal<br>
+                            Girigudde, 1.5km from Bantwal Bypass<br>
+                            Dakshina Kannada, Karnataka - 574211
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Government Polytechnic Bantwal. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- FLOATING CTA -->
+    <div class="float-apply" id="floatBtn">
+        <a href="https://forms.gle/YA9Pxv8GuFm1CnVy6" target="_blank" class="btn" style="box-shadow: 0 4px 14px 0 rgba(0, 51, 102, 0.4);">
+            Apply Now ↗
+        </a>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. SCROLL REVEAL
+            const revealElements = document.querySelectorAll('.reveal');
+            const floatBtn = document.getElementById('floatBtn');
+            const heroSection = document.getElementById('hero');
+
+            const checkScroll = () => {
+                const triggerBottom = window.innerHeight * 0.85;
+                
+                revealElements.forEach(box => {
+                    const boxTop = box.getBoundingClientRect().top;
+                    if (boxTop < triggerBottom) box.classList.add('active');
+                });
+
+                // Toggle Floating Button based on Hero visibility
+                const heroBottom = heroSection.getBoundingClientRect().bottom;
+                if (heroBottom < 0) {
+                    floatBtn.classList.add('visible');
+                } else {
+                    floatBtn.classList.remove('visible');
+                }
+            };
+
+            window.addEventListener('scroll', checkScroll);
+            checkScroll(); // Init
+
+            // 2. CAROUSEL LOGIC
+            const track = document.getElementById('track');
+            const nextBtn = document.getElementById('nextBtn');
+            const prevBtn = document.getElementById('prevBtn');
+            const slides = Array.from(track.children);
+            let currentIndex = 0;
+
+            const moveToSlide = (index) => {
+                track.style.transform = `translateX(-${index * 100}%)`;
+                currentIndex = index;
+            };
+
+            nextBtn.addEventListener('click', () => {
+                const nextIndex = (currentIndex + 1) % slides.length;
+                moveToSlide(nextIndex);
+            });
+
+            prevBtn.addEventListener('click', () => {
+                const prevIndex = (currentIndex - 1 + slides.length) % slides.length;
+                moveToSlide(prevIndex);
+            });
+
+            // Auto-advance
+            setInterval(() => {
+                const nextIndex = (currentIndex + 1) % slides.length;
+                moveToSlide(nextIndex);
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
